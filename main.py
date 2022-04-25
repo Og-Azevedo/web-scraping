@@ -42,15 +42,31 @@ time.sleep(1)
 # time.sleep(1)
 # driver.find_element(By.NAME, "search").send_keys(link_text)
 
-menu_lateral = driver.find_elements(By.TAG_NAME, "a")
+# menu_lateral = driver.find_elements(By.TAG_NAME, "a")
+# link = driver.find_element(By.PARTIAL_LINK_TEXT, "TV Glo").get_attribute("href")
+# print(link)
 
-for item in menu_lateral:
-    if "esplanada" in item.text.lower():
-        print(item.text)
-        item.click()
-        break
+# link = driver.find_element(By.XPATH, '//*[@id="mw-content-text"]/div[1]/table[1]/tbody/tr[2]/td/div/div/div/a').get_attribute('href')
+# print(link)
+# for item in menu_lateral:
+#     if "esplanada" in item.text.lower():
+#         print(item.text)
+#         item.click()
+#         break
 # for tx in titulo[:3]:
 #     print(titulo.text)
 
-# driver.quit()
+menu = driver.find_element(By.ID, "p-navigation")
+list_item = menu.find_elements(By.TAG_NAME, "li")
+for item in list_item:
+    print(item.text)
+    link = item.find_element(By.TAG_NAME, "a").get_attribute("href")
+    print(link)
+
+# for item in menu:
+#     list_item = item.
+#     print(list_item)
+
+
+driver.quit()
 
